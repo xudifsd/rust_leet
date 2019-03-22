@@ -1,23 +1,7 @@
+use leetcode_prelude::*;
+
 use std::rc::Rc;
 use std::cell::RefCell;
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
-}
-
-impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
-    }
-  }
-}
 
 pub struct Solution {}
 
@@ -26,21 +10,16 @@ mod average_of_levels_in_binary_tree;
 fn test_637() {
     println!("answer is {:?}", Solution::average_of_levels(None));
 
-    let root = Rc::new(RefCell::new(TreeNode::new(4)));
-    println!("answer is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
+    println!("answer is {:?}", Solution::average_of_levels(btree![4]));
 
-    {
-        let mut root_ref = root.borrow_mut();
-        root_ref.left.replace(Rc::new(RefCell::new(TreeNode::new(5))));
-        root_ref.right.replace(Rc::new(RefCell::new(TreeNode::new(6))));
-    }
-    println!("answer is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
+    println!("answer is {:?}", Solution::average_of_levels(btree![4, 5, 6]));
 }
 
 mod validate_binary_search_tree;
 
 fn test_98() {
     println!("answer is {:?}", Solution::is_valid_bst(None));
+    println!("answer is {:?}", Solution::is_valid_bst(btree![3, 3, 2]));
 }
 
 fn main() {
