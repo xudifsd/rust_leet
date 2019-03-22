@@ -24,19 +24,27 @@ pub struct Solution {}
 mod average_of_levels_in_binary_tree;
 
 fn test_637() {
-    println!("answer for None is {:?}", Solution::average_of_levels(None));
+    println!("answer is {:?}", Solution::average_of_levels(None));
 
     let root = Rc::new(RefCell::new(TreeNode::new(4)));
-    println!("answer for None is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
+    println!("answer is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
 
     {
         let mut root_ref = root.borrow_mut();
         root_ref.left.replace(Rc::new(RefCell::new(TreeNode::new(5))));
         root_ref.right.replace(Rc::new(RefCell::new(TreeNode::new(6))));
     }
-    println!("answer for None is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
+    println!("answer is {:?}", Solution::average_of_levels(Some(Rc::clone(&root))));
+}
+
+mod validate_binary_search_tree;
+
+fn test_98() {
+    println!("answer is {:?}", Solution::is_valid_bst(None));
 }
 
 fn main() {
-    test_637();
+    // test_637();
+
+    test_98();
 }
