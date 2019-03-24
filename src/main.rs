@@ -26,8 +26,16 @@ fn test_876() {
     println!("answer is {:?}", Solution::middle_node(linkedlist![1, 2, 3]));
 }
 
+mod reverse_linked_list;
+
+#[allow(dead_code)]
+fn test_206() {
+    println!("answer is {:?}", Solution::reverse_list(linkedlist![1, 2, 3]));
+}
+
 fn main() {
     // test_637();
     // test_98();
-    test_876();
+    // test_876();
+    test_206();
 }
