@@ -40,10 +40,28 @@ fn test_21() {
     println!("answer is {:?}", Solution::merge_two_lists(linkedlist![1, 2, 3], linkedlist![2, 3, 4]));
 }
 
+mod design_linked_list;
+
+#[allow(dead_code)]
+fn test_707() {
+    let mut linked_list = design_linked_list::MyLinkedList::new();
+    linked_list.add_at_head(5);
+    println!("list is {:?}", linked_list);
+    linked_list.add_at_head(2);
+    println!("list is {:?}", linked_list);
+    linked_list.delete_at_index(1);
+    println!("list is {:?}", linked_list);
+    linked_list.add_at_tail(4);
+    println!("0 is {:?}", linked_list.get(0));
+    linked_list.add_at_tail(4);
+    println!("list is {:?}", linked_list.get(2));
+    linked_list.delete_at_index(1);
+}
+
 fn main() {
     // test_637();
     // test_98();
     // test_876();
     // test_206();
-    test_21();
+    test_707();
 }
