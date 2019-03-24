@@ -33,9 +33,17 @@ fn test_206() {
     println!("answer is {:?}", Solution::reverse_list(linkedlist![1, 2, 3]));
 }
 
+mod merge_two_sorted_lists;
+
+#[allow(dead_code)]
+fn test_21() {
+    println!("answer is {:?}", Solution::merge_two_lists(linkedlist![1, 2, 3], linkedlist![2, 3, 4]));
+}
+
 fn main() {
     // test_637();
     // test_98();
     // test_876();
-    test_206();
+    // test_206();
+    test_21();
 }
